@@ -23,16 +23,14 @@ module.exports = function container (get, set, clear) {
         so.selector = get('lib.normalize-selector')(selector || c.selector)
         so.mode = 'live'
         so.strategy = c.strategy
+        so.stats = true
         var engine = get('lib.engine')(s)
         engine.executeSignal('sell', function (err, order) {
           if (err) {
-            if (err.desc) {
-              console.error(err.desc)
-              process.exit(1)
-            }
-            else throw err
+            if (err.desc) console.error(err.desc)
+            if (err.body) console.error(err.body)
+            throw err
           }
-          console.log(JSON.stringify(order, null, 2))
           process.exit()
         })
       })
