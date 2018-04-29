@@ -1,0 +1,8 @@
+{
+  "name": "exxon_gemini",
+  "version": "0.0.1",
+  "description": "exxon supporting code for Gemini",
+  "dependencies": {
+    "gemini-api": "^2.0.4"
+  }
+}
